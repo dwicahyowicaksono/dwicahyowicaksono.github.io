@@ -1,38 +1,24 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css"/>
-</head>
 <body>
-	<div id="map" style="width: 600px; height: 400px"></div>
+<h2> Uji loop</h2>
+<p> Masukkan sebuah angka : </p>
+Angka: <input type="text" id="angka">
+<button onclick="klik()">Klik</button>
+<p id="isi"></p>
 
-	<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
-	<script>
-
-		var map = L.map('map').setView([0.11928, 110.59730], 13);
-
-		L.tileLayer('https://{s}.tiles.mapbox.com/v3/{id}/{z}/{x}/{y}.png', {
-			maxZoom: 15,
-			attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
-				'<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
-				'Imagery Â© <a href="http://mapbox.com">Mapbox</a>',
-			id: 'examples.map-i875mjb7'
-		}).addTo(map);
-
-
-		L.marker([0.11928, 110.59730]).addTo(map)
-			.bindPopup("<b>KabupatenSanggau</b><br />DwiCahyoW").openPopup();
-
-		var popup = L.popup();
-
-		function onMapClick(e) {
-			popup
-				.setLatLng(e.latlng)
-				.setContent("You clicked the map at " + e.latlng.toString())
-				.openOn(map);
-		}
-
-		map.on('click', onMapClick);
-
-	</script>
+<script>
+	function klik(){
+		var nilai;
+		nilai = document.getElementById("angka").value;
+		
+		var val="";
+		for (var i=0; i<=nilai; i++)
+			{
+				val = val + i + " ";
+			}
+		document.getElementById("isi").innerHTML=val;
+	}
+</script>
+</body>
 </html>
